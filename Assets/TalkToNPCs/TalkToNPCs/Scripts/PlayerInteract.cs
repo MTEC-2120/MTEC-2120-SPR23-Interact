@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour {
+public class PlayerInteract : MonoBehaviour, IInteractor {
 
 
     private void Update() {
