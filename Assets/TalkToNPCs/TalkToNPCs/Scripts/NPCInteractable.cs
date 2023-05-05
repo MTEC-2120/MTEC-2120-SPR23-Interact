@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NPCInteractable : MonoBehaviour, IInteractable {
 
     [SerializeField] private string interactText;
+    [SerializeField] private GameObject chatBubble;
+    private TMP_Text chatText;
 
     private Animator animator;
     private NPCHeadLookAt npcHeadLookAt;
@@ -15,8 +18,14 @@ public class NPCInteractable : MonoBehaviour, IInteractable {
     }
 
     public void Interact(Transform interactorTransform) {
-        ChatBubble3D.Create(transform.transform, new Vector3(-.3f, 1.7f, 0f), ChatBubble3D.IconType.Happy, "Hello there!");
 
+
+        Vector3 position = transform.position;
+        GameObject go = Instantiate(chatBubble, position + new Vector3(-0.3f, 2.5f, 0f), Quaternion.identity);
+        chatText = go.GetComponentInChildren<TMP_Text>();
+        chatText.text = "Hello there!";
+
+        Destroy(go, 6f); 
         //animator.SetTrigger("Talk");
 
         float playerHeight = 1.7f;

@@ -37,6 +37,7 @@ public class PlayerInteract : MonoBehaviour, IInteractor {
             }
         }
 
+        //Debug.Log("closestInteractable " + closestInteractable);
         return closestInteractable;
     }
 
