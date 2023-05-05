@@ -39,13 +39,23 @@ public class NPCDialog : MonoBehaviour, IInteractable
         {
             chatText.text = dialog; 
             Debug.Log(dialog);
-            yield return new WaitForSeconds(chatTime);
+            //yield return new WaitForSeconds(chatTime);
+            yield return WaitForKeyPress();
         }
         yield return new WaitForSeconds(chatTime);
 
         Destroy(chatBubble, chatTime); 
 
         yield return null;
+    }
+
+    IEnumerator WaitForKeyPress()
+    {
+        while(!Input.GetKeyDown(KeyCode.C))
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.0f);
     }
 
     public string GetInteractText()
