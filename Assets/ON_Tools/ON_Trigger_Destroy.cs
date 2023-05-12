@@ -8,6 +8,11 @@ namespace ON
     {
         public float timeToDestroy = 1f; // time to destroy in seconds
 
+
+        public delegate void TriggerDestroy(GameObject obj);
+        public static event TriggerDestroy OnTriggerDestroy;
+
+
         void Start()
         {
 
@@ -37,6 +42,7 @@ namespace ON
             Debug.Log("Destroy: " + timeToDestroy);
 
             Destroy(this.gameObject, timeToDestroy);
+            OnTriggerDestroy?.Invoke(this.gameObject);
             Reset();
             yield return null;
         }

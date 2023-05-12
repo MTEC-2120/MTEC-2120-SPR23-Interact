@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events; 
 using TMPro; 
 
 public class NPCDialog : MonoBehaviour, IInteractable
@@ -13,7 +14,9 @@ public class NPCDialog : MonoBehaviour, IInteractable
     public float chatTime; 
 
     private TMP_Text chatText;
-    private GameObject chatBubble; 
+    private GameObject chatBubble;
+
+    public UnityEvent OnInteractionComplete; 
 
     [SerializeField] private string interactText;
 
@@ -26,9 +29,8 @@ public class NPCDialog : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
-        Vector3 position = transform.position;
-        GameObject chatBubble = Instantiate(chatPrefab, position + new Vector3(-0.3f, 2.5f, 0f), Quaternion.identity);
-        chatText = chatBubble.GetComponentInChildren<TMP_Text>(); 
+
+
 
         StartCoroutine(StartDialog()); 
     }
@@ -37,14 +39,21 @@ public class NPCDialog : MonoBehaviour, IInteractable
     {
         foreach(var dialog in dialogSequence)
         {
+            Vector3 position = transform.position;
+            GameObject chatBubble = Instantiate(chatPrefab, position + new Vector3(-0.3f, 2.5f, 0f), Quaternion.identity);
+            chatText = chatBubble.GetComponentInChildren<TMP_Text>();
+
             chatText.text = dialog; 
             Debug.Log(dialog);
             //yield return new WaitForSeconds(chatTime);
             yield return WaitForKeyPress();
+            Destroy(chatBubble.gameObject); 
+
         }
         yield return new WaitForSeconds(chatTime);
 
-        Destroy(chatBubble, chatTime); 
+        Destroy(chatBubble, chatTime);
+        OnInteractionComplete.Invoke(); 
 
         yield return null;
     }

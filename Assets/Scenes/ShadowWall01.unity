@@ -4623,7 +4623,7 @@ GameObject:
   - component: {fileID: 983719861}
   - component: {fileID: 983719860}
   - component: {fileID: 983719859}
-  - component: {fileID: 983719858}
+  - component: {fileID: 983719872}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Player
@@ -4631,20 +4631,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &983719858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983719857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288376ef709d4484dbdd78802d2aa56d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Press to Interact.
-  chatBubble: {fileID: 5811484524330774030, guid: 6fa38b01927e3f64b95d2a28000d121e, type: 3}
 --- !u!114 &983719859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,8 +4826,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983719857}
-  m_LocalRotation: {x: -0, y: 0.26484725, z: -0, w: 0.9642904}
-  m_LocalPosition: {x: 2.0050306, y: -0.7499995, z: 8.008453}
+  m_LocalRotation: {x: 0, y: 0.9897887, z: -0, w: -0.14254251}
+  m_LocalPosition: {x: 2.58, y: -0.7499995, z: 8.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4850,7 +4836,25 @@ Transform:
   - {fileID: 6733451917208238156}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 196.39, z: 0}
+--- !u!114 &983719872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983719857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f781bf99adc575449393a2a4b21e240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSequence:
+  - 'Hello, welcome to the Shadow World. '
+  - 'You must press the button to open the portal to the next world. '
+  chatPrefab: {fileID: 5811484524330774030, guid: 6fa38b01927e3f64b95d2a28000d121e, type: 3}
+  chatTime: 1
+  interactText: Press E to interact.
 --- !u!1 &986758481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3464177536279789095, guid: aa9a0dc71c1a9304987d085466470973, type: 3}
