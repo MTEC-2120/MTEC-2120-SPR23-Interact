@@ -100,7 +100,7 @@ namespace Kvant
         MaterialPropertyBlock _propertyBlock;
 
         // Update external components: mesh filter.
-        void UpdateMeshFilter()
+        public void UpdateMeshFilter()
         {
             var meshFilter = GetComponent<MeshFilter>();
 
@@ -116,7 +116,7 @@ namespace Kvant
         }
 
         // Update external components: mesh renderer.
-        void UpdateMeshRenderer()
+        public void UpdateMeshRenderer()
         {
             var meshRenderer = GetComponent<MeshRenderer>();
 
